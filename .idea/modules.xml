@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Aqi_Check.iml" filepath="$PROJECT_DIR$/.idea/modules/Aqi_Check.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Aqi_Check.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Aqi_Check.app.iml" />
-    </modules>
-  </component>
-</project>

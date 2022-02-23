@@ -12,4 +12,10 @@
         android:label="ListFragment" />
 
     <!--    // TODO 7. (S) Add FavoriteFragment -->
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="cz.muni.aqicheck.ui.favorites.FavoritesFragment"
+        tools:layout="@layout/fragment_favorites"
+        android:label="FavoritesFragment" />
+
 </navigation>
