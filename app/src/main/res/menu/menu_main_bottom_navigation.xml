@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--    // TODO 5. BottomNavigation MENU -->
     <item
         android:id="@+id/listFragment"
         android:icon="@drawable/ic_list"
         android:title="@string/main_navigation_list" />
 
-    <!--    // TODO 13. id fragmentu v navigace musí být stejné jako menu_main_bottom_navigation.xml -->
     <item
         android:id="@+id/favoritesFragment"
         android:icon="@drawable/ic_heart"
