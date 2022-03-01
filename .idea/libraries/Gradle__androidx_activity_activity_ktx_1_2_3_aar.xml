@@ -1,17 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.activity:activity-ktx:1.2.3@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2feadee74a2ed636a221ad2cb9a3395e/transformed/activity-ktx-1.2.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b067e566cb9a260dd5a64ced0891fbbb/transformed/activity-ktx-1.2.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/055ba1f1e5350e386d059bbdf221afbf/transformed/activity-ktx-1.2.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/0df71e3c5e173b7054a2386639ec5ba1/transformed/activity-ktx-1.2.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/42fe9c6fa0a6536b9643172547f49429/transformed/activity-ktx-1.2.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/42fe9c6fa0a6536b9643172547f49429/transformed/activity-ktx-1.2.3/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/42fe9c6fa0a6536b9643172547f49429/transformed/activity-ktx-1.2.3/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradle/gradle-7.4/caches/transforms-3/6f66c7ae0849fe669766f287667dfb51/transformed/activity-ktx-1.2.3/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/gradle-7.4/caches/transforms-3/6f66c7ae0849fe669766f287667dfb51/transformed/activity-ktx-1.2.3/res" />
+      <root url="file://$PROJECT_DIR$/../../../../Gradle/gradle-7.4/caches/transforms-3/6f66c7ae0849fe669766f287667dfb51/transformed/activity-ktx-1.2.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.activity/activity-ktx/1.2.3/8de8463662d207920c11530ec0e76af3005f0061/activity-ktx-1.2.3-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../Gradle/gradle-7.4/caches/modules-2/files-2.1/androidx.activity/activity-ktx/1.2.3/8de8463662d207920c11530ec0e76af3005f0061/activity-ktx-1.2.3-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
