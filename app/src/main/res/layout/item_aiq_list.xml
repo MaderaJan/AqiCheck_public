@@ -15,7 +15,7 @@
         android:paddingEnd="8dp"
         android:paddingBottom="16dp">
 
-        <!--        // TODO 15. (S) vytvoření AQI layoutu -->
+        <!--        // TODO 1. (S) vytvoření AQI layoutu -->
         <!--        @+id/aqi_color_indicator-->
         <!--        @+id/aqi_value_text_view-->
         <!--        @+id/city_name_text_view-->

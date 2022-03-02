@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import cz.muni.aqicheck.databinding.FragmentFavoritesBinding
-import java.text.SimpleDateFormat
-import java.util.*
+import cz.muni.aqicheck.util.getNowFormattedDateString
 
 class FavoritesFragment : Fragment() {
 
@@ -26,12 +25,7 @@ class FavoritesFragment : Fragment() {
         }
     }
 
-    private fun giveMeTime(previousText: String): String {
-        val df = SimpleDateFormat("dd.mm.YYYY")
-
-        val timeLong = System.currentTimeMillis()
-        val date = Date(timeLong)
-
-        return "$previousText ${df.format(date)},"
-    }
+    // TODO 2.1 Kotlin Extensions
+    private fun giveMeTime(previousText: String): String =
+        "$previousText ${System.currentTimeMillis().getNowFormattedDateString()},"
 }
