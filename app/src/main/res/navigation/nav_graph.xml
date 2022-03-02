@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/listFragment">
 
-    <!--    // TODO 6. Navigation Graph -->
     <fragment
         android:id="@+id/listFragment"
         android:name="cz.muni.aqicheck.ui.list.ListFragment"
         tools:layout="@layout/fragment_list"
         android:label="ListFragment" />
 
-    <!--    // TODO 7. (S) Add FavoriteFragment -->
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="cz.muni.aqicheck.ui.favorites.FavoritesFragment"
-        tools:layout="@layout/fragment_favorites"
-        android:label="FavoritesFragment" />
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites" />
+
 
 </navigation>
