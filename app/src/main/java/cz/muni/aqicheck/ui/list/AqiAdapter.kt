@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import cz.muni.aqicheck.data.AqiPresentableListItem
-import cz.muni.aqicheck.databinding.ItemAiqListBinding
+import cz.muni.aqicheck.databinding.ItemAqiListBinding
 
 class AqiAdapter(
     private val onItemClick: (AqiPresentableListItem) -> Unit
@@ -15,7 +15,7 @@ class AqiAdapter(
 
     // TODO 5. Binding Layoutu Viewholderu
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AqiViewHolder {
-        val binding = ItemAiqListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemAqiListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return AqiViewHolder(binding)
     }
 

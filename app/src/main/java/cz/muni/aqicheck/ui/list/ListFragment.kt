@@ -36,5 +36,6 @@ class ListFragment : Fragment() {
         binding.recyclerView.adapter = adapter
 
         // TODO 13. inicializace dat
+        adapter.submitList(aqiRepository.getMockedData())
     }
 }
