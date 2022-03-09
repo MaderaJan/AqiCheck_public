@@ -1,6 +1,5 @@
 package cz.muni.aqicheck.data
 
-// TODO 4.1 Data layer
 data class AqiPresentableListItem(
     val id: Long,
     val aqi: String,
