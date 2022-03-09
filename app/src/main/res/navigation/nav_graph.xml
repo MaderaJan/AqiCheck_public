@@ -13,8 +13,8 @@
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="cz.muni.aqicheck.ui.favorites.FavoritesFragment"
-        tools:layout="@layout/fragment_favorites"
-        android:label="FavoritesFragment" />
+        android:label="FavoritesFragment"
+        tools:layout="@layout/fragment_favorites" />
 
 
 </navigation>
