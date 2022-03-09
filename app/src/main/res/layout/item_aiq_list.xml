@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_container"
     style="@style/AqiCard"
     android:layout_width="match_parent"
@@ -15,12 +17,62 @@
         android:paddingEnd="8dp"
         android:paddingBottom="16dp">
 
-        <!--        // TODO 1. (S) vytvoření AQI layoutu -->
-        <!--        @+id/aqi_color_indicator-->
-        <!--        @+id/aqi_value_text_view-->
-        <!--        @+id/city_name_text_view-->
-        <!--        @+id/time_text_view-->
-        <!--        @+id/favorite_image_view-->
+        <TextView
+            android:id="@+id/city_name_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toStartOf="@id/favorite_image_view"
+            app:layout_constraintStart_toEndOf="@id/aqi_color_indicator"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="City name" />
+
+        <View
+            android:id="@+id/aqi_color_indicator"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_indicator"
+            android:backgroundTint="@color/aqi_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/aqi_value_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/aqi_color_indicator"
+            app:layout_constraintEnd_toEndOf="@id/aqi_color_indicator"
+            app:layout_constraintStart_toStartOf="@id/aqi_color_indicator"
+            app:layout_constraintTop_toTopOf="@id/aqi_color_indicator"
+            tools:text="25" />
+
+        <ImageView
+            android:id="@+id/favorite_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_heart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/aqi_red"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/time_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/favorite_image_view"
+            app:layout_constraintStart_toEndOf="@id/aqi_color_indicator"
+            app:layout_constraintTop_toBottomOf="@id/city_name_text_view"
+            tools:text="Time" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

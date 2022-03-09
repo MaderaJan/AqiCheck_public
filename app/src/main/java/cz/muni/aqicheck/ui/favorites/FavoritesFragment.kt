@@ -25,7 +25,6 @@ class FavoritesFragment : Fragment() {
         }
     }
 
-    // TODO 2.1 Kotlin Extensions
     private fun giveMeTime(previousText: String): String =
         "$previousText ${System.currentTimeMillis().getNowFormattedDateString()},"
 }
