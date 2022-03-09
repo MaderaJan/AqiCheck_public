@@ -31,6 +31,8 @@ class ListFragment : Fragment() {
             context?.toast("${it.station}")
         })
 
+
+
         // TODO 12. layout manager a přiřazení adaptéru
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
