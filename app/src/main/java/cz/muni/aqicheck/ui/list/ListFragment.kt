@@ -9,11 +9,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.aqicheck.databinding.FragmentListBinding
 import cz.muni.aqicheck.repository.AqiRepository
+import cz.muni.aqicheck.util.toast
 
 class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
-
+    
     private val aqiRepository: AqiRepository by lazy {
         AqiRepository()
     }
@@ -26,14 +27,12 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = AqiAdapter(onItemClick = {
-            findNavController()
-                .navigate(ListFragmentDirections.actionListFragmentToDetailFragment(it))
+        val adapter = AqiAdapter(onItemClick = { item ->
+            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailFragment(item))
         })
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
-
         adapter.submitList(aqiRepository.getMockedData(100))
     }
 }

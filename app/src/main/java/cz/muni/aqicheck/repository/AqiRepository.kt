@@ -10,10 +10,13 @@ class AqiRepository {
             repeat(count) {
                 val item = AqiPresentableListItem(
                     id = it.toLong(),
+                    name = "NAME-$it",
                     aqi = "$it",
                     time = System.currentTimeMillis().getNowFormattedDateString(),
                     station = "station-$it",
                     isFavorite = it % 2 == 0,
+                    web = "Url",
+                    location = "12.25, 12.25"
                 )
                 add(item)
             }

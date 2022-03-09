@@ -32,26 +32,73 @@
             <!--   TODO 4.1 indicator -->
             <!--   TODO 4.1 aqi_text_view -->
 
+            <View
+                android:id="@+id/indicator"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:elevation="2dp"
+                android:background="@drawable/bg_indicator"
+                android:backgroundTint="@color/aqi_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/aqi_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:textSize="24sp"
+                android:elevation="2dp"
+                app:layout_constraintBottom_toBottomOf="@id/indicator"
+                app:layout_constraintEnd_toEndOf="@id/indicator"
+                app:layout_constraintStart_toStartOf="@id/indicator"
+                app:layout_constraintTop_toTopOf="@id/indicator"
+                tools:text="25" />
+
             <com.google.android.material.card.MaterialCardView
                 style="@style/AqiCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginHorizontal="16dp"
+                android:translationY="-16dp"
+                app:layout_constraintTop_toBottomOf="@+id/aqi_text_view">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp">
 
+                    <TextView
+                        android:id="@+id/name_text_view"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textSize="36sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Station" />
+
+                    <TextView
+                        android:id="@+id/time_text_view"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/name_text_view"
+                        tools:text="Station" />
+
                     <ImageView
                         android:id="@+id/station_image_view"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
                         android:src="@drawable/ic_station"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/name_text_view"
+                        app:layout_constraintTop_toBottomOf="@+id/time_text_view"
                         app:tint="@color/purple_500"
                         tools:ignore="ContentDescription" />
 
@@ -76,9 +123,74 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/station_text_view" />
 
+                    <ImageView
+                        android:id="@+id/web_image_view"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_search"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@+id/name_text_view"
+                        app:layout_constraintTop_toBottomOf="@+id/station_divider"
+                        app:tint="@color/purple_500"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/web_text_view"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/web_image_view"
+                        app:layout_constraintTop_toTopOf="@id/web_image_view"
+                        tools:text="web" />
+
+                    <View
+                        android:id="@+id/web_divider"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/primary_variant_200"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/web_text_view" />
+
+                    <ImageView
+                        android:id="@+id/location_image_view"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_location"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toStartOf="@+id/name_text_view"
+                        app:layout_constraintTop_toBottomOf="@+id/web_divider"
+                        app:tint="@color/purple_500"
+                        tools:ignore="ContentDescription" />
+
+                    <TextView
+                        android:id="@+id/location_text_view"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/location_image_view"
+                        app:layout_constraintTop_toTopOf="@id/location_image_view"
+                        tools:text="url" />
+
+                    <View
+                        android:id="@+id/location_divider"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/primary_variant_200"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/location_text_view" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
