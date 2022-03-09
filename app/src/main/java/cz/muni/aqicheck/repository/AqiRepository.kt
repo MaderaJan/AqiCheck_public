@@ -3,7 +3,6 @@ package cz.muni.aqicheck.repository
 import cz.muni.aqicheck.data.AqiPresentableListItem
 import cz.muni.aqicheck.util.getNowFormattedDateString
 
-
 class AqiRepository {
 
     fun getMockedData(count: Int = 10): List<AqiPresentableListItem> =
@@ -19,4 +18,5 @@ class AqiRepository {
                 add(item)
             }
         }
+
 }

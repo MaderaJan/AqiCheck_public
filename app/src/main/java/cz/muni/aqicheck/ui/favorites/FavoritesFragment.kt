@@ -25,7 +25,6 @@ class FavoritesFragment : Fragment() {
         }
     }
 
-
     private fun giveMeTime(previousText: String): String =
         "$previousText ${System.currentTimeMillis().getNowFormattedDateString()},"
 }

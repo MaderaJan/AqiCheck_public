@@ -1,6 +1,5 @@
 package cz.muni.aqicheck.data
 
-
 data class AqiPresentableListItem(
     val id: Long,
     val aqi: String,
