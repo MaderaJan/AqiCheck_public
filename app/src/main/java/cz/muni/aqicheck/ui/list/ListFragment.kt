@@ -13,6 +13,8 @@ import cz.muni.aqicheck.util.toast
 class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
+
+    // TODO 3.3 inicializace dat
     private val aqiRepository: AqiRepository by lazy {
         AqiRepository()
     }
@@ -25,18 +27,22 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // TODO 10. vytvoření adapteru a předání click listener
+        // TODO 2.1. vytvoření adapteru a předání click listener
         val adapter = AqiAdapter(onItemClick = {
-            // TODO 11. Toast a kolin extensions
+            // TODO 2.2. Toast a kolin extensions
             context?.toast("${it.station}")
         })
 
+<<<<<<< HEAD
 
 
         // TODO 12. layout manager a přiřazení adaptéru
+=======
+        // TODO 3.1 layout manager a přiřazení adaptéru
+>>>>>>> origin
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
-        // TODO 13. inicializace dat
+        // TODO 3.2 inicializace dat
     }
 }
