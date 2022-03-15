@@ -1,9 +1,16 @@
 package cz.muni.aqicheck.repository
 
+import android.content.Context
 import cz.muni.aqicheck.data.AqiPresentableListItem
+import cz.muni.aqicheck.database.AqiDatabase
+import cz.muni.aqicheck.database.FavoriteStationDao
 import cz.muni.aqicheck.util.getNowFormattedDateString
 
-class AqiRepository {
+class AqiRepository(
+    context: Context,
+    // TODO 7. Vytvoření databáze
+    private val favoriteStationDao: FavoriteStationDao = AqiDatabase.create(context).favoriteStationDao(),
+) {
 
     fun getMockedData(count: Int = 10): List<AqiPresentableListItem> =
         mutableListOf<AqiPresentableListItem>().apply {
@@ -22,4 +29,8 @@ class AqiRepository {
             }
         }
 
+
+    fun getFavorites() {
+        // TODO 8. napsat získání favorites a mapování na list entity
+    }
 }
