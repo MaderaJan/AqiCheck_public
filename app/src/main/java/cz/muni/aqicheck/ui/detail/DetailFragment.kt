@@ -1,11 +1,14 @@
 package cz.muni.aqicheck.ui.detail
 
+import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 
-class DetailFragment: Fragment()
+class DetailFragment: Fragment() {
 
-// TODO 4.1 Procházka navigation designerem
-// TODO 4.1 Vytvoření Action ListFragment
-// TODO 4.1 Vytvoření SafeArg DetailFragment
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-// TODO 4.2 (S) Binding view pros pro DetailFragment
+        val aqiItem = DetailFragmentArgs.fromBundle(requireArguments()).item
+    }
+}
