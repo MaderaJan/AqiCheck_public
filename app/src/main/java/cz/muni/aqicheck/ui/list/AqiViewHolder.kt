@@ -17,7 +17,7 @@ class AqiViewHolder(private val binding: ItemAiqListBinding)
         binding.timeTextView.text = listItem.time
 
         binding.cardContainer.setOnClickListener {
-            // TODO 1.2 invoke click
+            onItemClick(listItem) // or OnItemList.invoke(listItem)
         }
     }
 }

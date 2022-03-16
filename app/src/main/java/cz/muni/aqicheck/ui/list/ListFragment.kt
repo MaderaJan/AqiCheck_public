@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.aqicheck.databinding.FragmentListBinding
 import cz.muni.aqicheck.repository.AqiRepository
@@ -28,9 +29,10 @@ class ListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // TODO 2.1. vytvoření adapteru a předání click listener
-        val adapter = AqiAdapter(onItemClick = {
+        val adapter = AqiAdapter(onItemClick = { item ->
+            findNavController()
+                .navigate(ListFragmentDirections.actionListFragmentToDetailFragment(item))
             // TODO 2.2. Toast a kolin extensions
-            context?.toast("${it.station}")
         })
 
         // TODO 3.1 layout manager a přiřazení adaptéru
@@ -38,5 +40,6 @@ class ListFragment : Fragment() {
         binding.recyclerView.adapter = adapter
 
         // TODO 3.2 inicializace dat
+        adapter.submitList(aqiRepository.getMockedData(100))
     }
 }

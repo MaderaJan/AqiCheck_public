@@ -8,13 +8,30 @@
         android:id="@+id/listFragment"
         android:name="cz.muni.aqicheck.ui.list.ListFragment"
         tools:layout="@layout/fragment_list"
-        android:label="ListFragment" />
+        android:label="ListFragment" >
+
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="cz.muni.aqicheck.ui.favorites.FavoritesFragment"
         android:label="FavoritesFragment"
         tools:layout="@layout/fragment_favorites" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="cz.muni.aqicheck.ui.detail.DetailFragment"
+        tools:layout="@layout/fragment_detail"
+        android:label="DetailFragment" >
+
+        <argument
+            android:name="item"
+            app:argType="cz.muni.aqicheck.data.AqiPresentableListItem" />
+
+    </fragment>
 
 
 </navigation>

@@ -23,7 +23,63 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <!--   TODO 4.1 name_text_view -->
+            <TextView
+                android:id="@+id/name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brno"
+                android:textSize="40sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/aqi_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brno"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_text_view" />
+
+            <TextView
+                android:id="@+id/station_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Station"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/aqi_text_view" />
+
+            <TextView
+                android:id="@+id/web_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Url"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/station_text_view" />
+
+            <TextView
+                android:id="@+id/location_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Url"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/web_text_view" />
+
+
+            <!--   TODO 4.1 name_text_view -->
         <!--   TODO 4.1 time_text_view -->
         <!--   TODO 4.1 station_text_view -->
         <!--   TODO 4.1 web_text_view -->
