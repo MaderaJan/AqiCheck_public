@@ -1,17 +1,22 @@
 package cz.muni.aqicheck.util
 
 import cz.muni.aqicheck.R
+import java.lang.Exception
 
 object AqiScale {
 
-    fun getColor(aqi: String): Int {
-        // TODO 2.1 (S) získání barvy na základě aqi hodnoty
-        // TODO HODNOTA <= 50 -> R.color.aqi_green
-        // TODO HODNOTA <= 100 -> R.color.aqi_yellow
-        // TODO HODNOTA <= 150 -> R.color.aqi_orange
-        // TODO HODNOTA <= 200 -> R.color.aqi_red
-        // TODO HODNOTA <= 300 -> R.color.aqi_purple
-
-        return R.color.aqi_red
-    }
+    fun getColor(aqi: String): Int =
+        try {
+            val aqiInt = aqi.toInt();
+            when {
+                aqiInt <= 50 -> R.color.aqi_green;
+                aqiInt <= 100 -> R.color.aqi_yellow
+                aqiInt <= 150 -> R.color.aqi_orange
+                aqiInt <= 200 -> R.color.aqi_red
+                aqiInt <= 300 -> R.color.aqi_purple
+                else -> R.color.aqi_red;
+            }
+        } catch (ex: Exception) {
+            R.color.aqi_red;
+        }
 }

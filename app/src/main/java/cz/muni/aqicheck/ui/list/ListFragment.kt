@@ -26,11 +26,14 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // TODO 9.3 (S) Napsat callback na Favorite Click
-        val adapter = AqiAdapter(onItemClick = {
-            findNavController()
-                .navigate(ListFragmentDirections.actionListFragmentToDetailFragment(it))
-        })
+        val adapter = AqiAdapter(
+            onItemClick = {
+                findNavController()
+                    .navigate(ListFragmentDirections.actionListFragmentToDetailFragment(it)) },
+            onFavouriteClick = { item ->
+                aqiRepository.updateFavourite(item)
+            }
+        )
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter

@@ -1,13 +1,16 @@
 package cz.muni.aqicheck.ui.detail
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import cz.muni.aqicheck.R
 import cz.muni.aqicheck.databinding.FragmentDetailBinding
+import cz.muni.aqicheck.util.AqiScale
 
 class DetailFragment: Fragment() {
 
@@ -21,7 +24,6 @@ class DetailFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // TODO 3. Toolbar s BACK Navigací
         binding.toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
@@ -33,7 +35,8 @@ class DetailFragment: Fragment() {
         binding.timeTextView.text = aqiDetail.time
         binding.locationTextView.text = aqiDetail.station
 
-        // TODO 2.3 (S) Přiřazení barvy do detailu
+        val aqiColor = AqiScale.getColor(aqiDetail.aqi)
+        binding.indicator.backgroundTintList = ContextCompat.getColorStateList(requireContext(), aqiColor)
 
         val name = aqiDetail.station
         binding.nameTextView.text = name
