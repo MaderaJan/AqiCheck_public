@@ -9,15 +9,19 @@ import cz.muni.aqicheck.databinding.ItemAiqListBinding
 class AqiViewHolder(private val binding: ItemAiqListBinding)
     : RecyclerView.ViewHolder(binding.root) {
 
-    // TODO 1.1 předání callback -> onItemClick: (AqiPresentableListItem) -> Unit
     fun bind(listItem: AqiPresentableListItem, onItemClick: (AqiPresentableListItem) -> Unit) {
+        // TODO 2.2 (S) Přiřazení barvy položky z listu pomocí AqiScale
         binding.aqiColorIndicator.backgroundTintList = ContextCompat.getColorStateList(itemView.context, R.color.aqi_green)
+
         binding.aqiValueTextView.text = listItem.aqi
         binding.cityNameTextView.text = listItem.station
         binding.timeTextView.text = listItem.time
 
         binding.cardContainer.setOnClickListener {
-            // TODO 1.2 invoke click
+            onItemClick(listItem)
         }
+
+        // TODO 9.1 (S) napsat IF pro přiřazení srdce jestli je nebo není favorite
+        // TODO 9.2 (S) napsat click listener na srdíčko
     }
 }

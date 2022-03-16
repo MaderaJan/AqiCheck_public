@@ -44,7 +44,7 @@
             android:background="@android:color/transparent"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="@id/aqi_color_indicator"
-            app:layout_constraintEnd_toEndOf="@id/aqi_color_indicator"
+            app:layout_constraintEnd_toEndOf="@+id/aqi_color_indicator"
             app:layout_constraintStart_toStartOf="@id/aqi_color_indicator"
             app:layout_constraintTop_toTopOf="@id/aqi_color_indicator"
             tools:text="25" />
