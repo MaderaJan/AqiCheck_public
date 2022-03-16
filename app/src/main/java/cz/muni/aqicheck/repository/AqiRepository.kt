@@ -20,7 +20,7 @@ class AqiRepository(
                     aqi = "$it",
                     time = System.currentTimeMillis().getNowFormattedDateString(),
                     station = "station-$it",
-                    isFavorite = it % 2 == 0,
+                    isFavorite = it % 10 == 0,
                 )
                 if (item.isFavorite) {
                     val entity = FavoriteStationEntity(
