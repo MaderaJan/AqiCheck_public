@@ -11,19 +11,11 @@ class AqiViewHolder(private val binding: ItemAiqListBinding)
 
     // TODO 1.1 předání callback -> onItemClick: (AqiPresentableListItem) -> Unit
     fun bind(listItem: AqiPresentableListItem, onItemClick: (AqiPresentableListItem) -> Unit) {
-<<<<<<< HEAD
-        binding.aqiColorIndicator
-        binding.aqiValueTextView
-        binding.cityNameTextView
-        binding.timeTextView
-        binding.favoriteImageView
 
-=======
         binding.aqiColorIndicator.backgroundTintList = ContextCompat.getColorStateList(itemView.context, R.color.aqi_green)
         binding.aqiValueTextView.text = listItem.aqi
         binding.cityNameTextView.text = listItem.station
         binding.timeTextView.text = listItem.time
->>>>>>> origin
 
         binding.cardContainer.setOnClickListener {
             // TODO 1.2 invoke click

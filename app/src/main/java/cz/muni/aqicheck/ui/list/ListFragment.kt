@@ -33,16 +33,11 @@ class ListFragment : Fragment() {
             context?.toast("${it.station}")
         })
 
-<<<<<<< HEAD
-
-
-        // TODO 12. layout manager a přiřazení adaptéru
-=======
         // TODO 3.1 layout manager a přiřazení adaptéru
->>>>>>> origin
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
         // TODO 3.2 inicializace dat
+        adapter.submitList(aqiRepository.getMockedData(100))
     }
 }
