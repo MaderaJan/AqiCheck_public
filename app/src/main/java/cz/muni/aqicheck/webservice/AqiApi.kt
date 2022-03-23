@@ -7,7 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-// TODO 2.3 Definice AqiApi
 interface AqiApi {
 
     @GET("search/")

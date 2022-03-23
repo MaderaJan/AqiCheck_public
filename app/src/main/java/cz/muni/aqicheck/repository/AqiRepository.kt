@@ -17,7 +17,6 @@ import retrofit2.Response
 class AqiRepository(
     context: Context,
     private val favoriteStationDao: FavoriteStationDao = AqiDatabase.create(context).favoriteStationDao(),
-    // TODO 4. vytvoření instance
     private val aqiApi: AqiApi = RetrofitUtil.createAqiWebService()
 ) {
 
@@ -39,14 +38,19 @@ class AqiRepository(
         }
 
     // TODO 4. search metoda
-    fun search(keyword: String, onSuccess: (List<AqiPresentableListItem>) -> Unit, onFailure: (Throwable) -> Unit) {
+    fun search(
+        keyword: String,
+        onSuccess: (List<AqiPresentableListItem>) -> Unit,
+        onFailure: (Throwable) -> Unit
+    ) {
         aqiApi.getSearchAqiByName(keyword, token)
             .enqueue(object : Callback<AqiListResponse> {
 
                 override fun onResponse(call: Call<AqiListResponse>, response: Response<AqiListResponse>) {
                     val responseBody = response.body()
                     if (response.isSuccessful && responseBody != null) {
-                        onSuccess(mapAqi(responseBody.data))
+                        val data = mapAqi(responseBody.data)
+                        onSuccess(data)
                     } else {
                         onFailure(IllegalStateException("Response was not successful"))
                     }
@@ -58,11 +62,13 @@ class AqiRepository(
             })
     }
 
-    // TODO 6.1 (S) napsání mapovací funkce, která
-    // TODO 6.1 z response napapuje na AqiPresentableListItem
-    // TODO 6.1 signatury Využití toAqiPresentableItem
     private fun mapAqi(items: List<AqiListItem>): List<AqiPresentableListItem> {
-        TODO()
+        val favorites = favoriteStationDao.getAll()
+
+        return items.map { aqiItem ->
+            val isFavorite = favorites.any { it.id == aqiItem.uid }
+            aqiItem.toAqiPresentableItem(isFavorite = isFavorite)
+        }
     }
 
     fun getFavorites(): List<AqiPresentableListItem> =
@@ -87,6 +93,19 @@ class AqiRepository(
     // TODO 8. (S) -> do DetailFragment se nyní nebude předávat item, ale pouze id
     // TODO 8. (S) -> a zobrazí se AqiDetailResponse
     fun getStationById(id: Long, onSuccess: (AqiDetailResponse) -> Unit, onFailure: (Throwable) -> Unit) {
-        TODO()
+        aqiApi.getSearchAqiById(id = id, token = token)
+            .enqueue(object: Callback<AqiDetailResponse>{
+
+                override fun onResponse(call: Call<AqiDetailResponse>, response: Response<AqiDetailResponse>) {
+                    val responseBody = response.body()
+                    if (response.isSuccessful && responseBody != null) {
+                        onSuccess(responseBody)
+                    }
+                }
+
+                override fun onFailure(call: Call<AqiDetailResponse>, t: Throwable) {
+                    onFailure(t)
+                }
+            })
     }
 }

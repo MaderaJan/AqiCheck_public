@@ -11,7 +11,6 @@ import cz.muni.aqicheck.databinding.FragmentFavoritesBinding
 import cz.muni.aqicheck.repository.AqiRepository
 import cz.muni.aqicheck.ui.list.AqiAdapter
 
-// TODO 1.1 binding, repo, apdater
 class FavoritesFragment : Fragment() {
 
     private lateinit var binding: FragmentFavoritesBinding
@@ -31,10 +30,9 @@ class FavoritesFragment : Fragment() {
         val adapter = AqiAdapter(
             onItemClick = {
                 findNavController()
-                    .navigate(FavoritesFragmentDirections.actionFavoritesFragmentToDetailFragment(it))
+                    .navigate(FavoritesFragmentDirections.actionFavoritesFragmentToDetailFragment(it.id.toString()))
             }
         )
-        // TODO 1.2 update item a smazání z listu
         adapter.onFavoriteClick = { item, position ->
             aqiRepository.updateFavorite(item)
             adapter.removeItem(position)

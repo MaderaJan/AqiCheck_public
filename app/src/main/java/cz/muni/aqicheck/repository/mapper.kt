@@ -5,7 +5,13 @@ import cz.muni.aqicheck.database.FavoriteStationEntity
 import cz.muni.aqicheck.webservice.response.AqiListItem
 
 fun AqiListItem.toAqiPresentableItem(isFavorite: Boolean): AqiPresentableListItem =
-    TODO() // TODO 6.2 (S) -> napsání mapperu
+    AqiPresentableListItem(
+        id = this.uid,
+        aqi = this.aqi,
+        time = this.time.stime,
+        station = this.station.name,
+        isFavorite = isFavorite,
+    )
 
 fun AqiPresentableListItem.toFavoriteStationEntity(): FavoriteStationEntity =
     FavoriteStationEntity(

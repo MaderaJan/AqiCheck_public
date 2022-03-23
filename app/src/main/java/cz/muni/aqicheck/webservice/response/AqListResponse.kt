@@ -1,6 +1,5 @@
 package cz.muni.aqicheck.webservice.response
 
-// TODO 2.1 Webservice Data Layer
 data class AqiListResponse(
     val status: String,
     val data: List<AqiListItem>
