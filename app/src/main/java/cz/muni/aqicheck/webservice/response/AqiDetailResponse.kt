@@ -1,6 +1,5 @@
 package cz.muni.aqicheck.webservice.response
 
-// TODO 2.2 Webservice Data Layer
 data class AqiDetailResponse(
     val status: String,
     val data: AqiDetailWrapperResponse,

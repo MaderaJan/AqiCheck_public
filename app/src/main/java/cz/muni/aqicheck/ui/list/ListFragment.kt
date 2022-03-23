@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.aqicheck.databinding.FragmentListBinding
 import cz.muni.aqicheck.repository.AqiRepository
+import cz.muni.aqicheck.util.toast
 
 class ListFragment : Fragment() {
 
@@ -29,10 +30,9 @@ class ListFragment : Fragment() {
         val adapter = AqiAdapter(
             onItemClick = {
                 findNavController()
-                    .navigate(ListFragmentDirections.actionListFragmentToDetailFragment(it))
+                    .navigate(ListFragmentDirections.actionListFragmentToDetailFragment(it.id.toString()))
             },
         )
-        // TODO 1.3 update item v listu
         adapter.onFavoriteClick = { item, position ->
             aqiRepository.updateFavorite(item)
             adapter.updateFavorite(position, !item.isFavorite)
@@ -41,7 +41,12 @@ class ListFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
-        // TODO 7. změna source -> czech pro default
-        adapter.submitList(aqiRepository.getMockedData(100))
+        aqiRepository.search(
+            keyword = "czech",
+            onSuccess = { items ->
+                adapter.submitList(items)
+            }, onFailure = { error ->
+                context?.toast("Something happened!")
+            })
     }
 }
