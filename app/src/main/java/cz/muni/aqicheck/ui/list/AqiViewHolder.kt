@@ -5,13 +5,18 @@ import androidx.recyclerview.widget.RecyclerView
 import cz.muni.aqicheck.R
 import cz.muni.aqicheck.data.AqiPresentableListItem
 import cz.muni.aqicheck.databinding.ItemAiqListBinding
+import cz.muni.aqicheck.util.AqiScale
 
 class AqiViewHolder(private val binding: ItemAiqListBinding)
     : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(listItem: AqiPresentableListItem, onItemClick: (AqiPresentableListItem) -> Unit) {
-        // TODO 2.2 (S) Přiřazení barvy položky z listu pomocí AqiScale
-        binding.aqiColorIndicator.backgroundTintList = ContextCompat.getColorStateList(itemView.context, R.color.aqi_green)
+    fun bind(
+        listItem: AqiPresentableListItem,
+        onItemClick: (AqiPresentableListItem) -> Unit,
+        onFavoriteClick: (AqiPresentableListItem, Int) -> Unit
+    ) {
+        val aqiColor = AqiScale.getColor(listItem.aqi)
+        binding.aqiColorIndicator.backgroundTintList = ContextCompat.getColorStateList(itemView.context, aqiColor)
 
         binding.aqiValueTextView.text = listItem.aqi
         binding.cityNameTextView.text = listItem.station
@@ -21,7 +26,11 @@ class AqiViewHolder(private val binding: ItemAiqListBinding)
             onItemClick(listItem)
         }
 
-        // TODO 9.1 (S) napsat IF pro přiřazení srdce jestli je nebo není favorite
-        // TODO 9.2 (S) napsat click listener na srdíčko
+        val imageRes = if (listItem.isFavorite) R.drawable.ic_heart else R.drawable.ic_heart_outline
+        binding.favoriteImageView.setImageResource(imageRes)
+
+        binding.favoriteImageView.setOnClickListener {
+            onFavoriteClick(listItem, adapterPosition)
+        }
     }
 }

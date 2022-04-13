@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import cz.muni.aqicheck.databinding.FragmentListBinding
 import cz.muni.aqicheck.repository.AqiRepository
+import cz.muni.aqicheck.util.toast
 
 class ListFragment : Fragment() {
 
@@ -26,15 +27,26 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // TODO 9.3 (S) Napsat callback na Favorite Click
-        val adapter = AqiAdapter(onItemClick = {
-            findNavController()
-                .navigate(ListFragmentDirections.actionListFragmentToDetailFragment(it))
-        })
+        val adapter = AqiAdapter(
+            onItemClick = {
+                findNavController()
+                    .navigate(ListFragmentDirections.actionListFragmentToDetailFragment(it.id.toString()))
+            },
+        )
+        adapter.onFavoriteClick = { item, position ->
+            aqiRepository.updateFavorite(item)
+            adapter.updateFavorite(position, !item.isFavorite)
+        }
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
-        adapter.submitList(aqiRepository.getMockedData(100))
+        aqiRepository.search(
+            keyword = "czech",
+            onSuccess = { items ->
+                adapter.submitList(items)
+            }, onFailure = { error ->
+                context?.toast("Something happened!")
+            })
     }
 }

@@ -20,7 +20,13 @@
         android:id="@+id/favoritesFragment"
         android:name="cz.muni.aqicheck.ui.favorites.FavoritesFragment"
         android:label="FavoritesFragment"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_favorites" >
+
+        <action
+            android:id="@+id/action_favoritesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/detailFragment"
@@ -29,8 +35,8 @@
         tools:layout="@layout/fragment_detail" >
 
         <argument
-            android:name="item"
-            app:argType="cz.muni.aqicheck.data.AqiPresentableListItem" />
+            android:name="id"
+            app:argType="string" />
 
     </fragment>
 
